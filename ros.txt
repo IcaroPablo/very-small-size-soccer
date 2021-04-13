@@ -1,0 +1,78 @@
+### CRIAR UM WORKSPACE ### 
+
+- criar uma pasta para o workspace e dentro dela uma pasta src
+- na raiz da pasta do workspace: catkin_init_workspace
+- na raiz da pasta do workspace: catkin_make
+- na raiz da pasta do workspace: source devel/setup.bash
+
+### CRIAR UM PACOTE ###
+
+- em pasta_do_workspace/src: catkin_create_pkg <package_name> [depend1] [depend2] [depend3]
+- configurar o cmakelists.txt
+- configurar o package.xml
+- em pasta_do_workspace: catkin_make (deve ser executado apos qualquer alteração)
+- criar o script em pasta_do_pacote
+
+### COMANDOS ###
+
+rospack find [package_name] --> Retorna o caminho de instalação de um pacote
+
+rospack depends1 <place> --> ver as depends
+
+roscore: no começo, espécie de master-server
+
+rosrun [pkg] [node] --> executa um node
+
+rosrun <pkg> <node> __name:=[algum nome] --> executa um mesmo node mas trocando o nome
+
+rosnode --> use -h para funções como list, ping, etc.
+
+ex do teclado: rosrun turtlesim turtle_teleop_key
+
+rostopic list --> lista os topicos em uso
+
+rostopic type <topic> --> mostra o tipo do topico
+
+rosservice list --> lista os serviços
+
+rosservice type <service> --> mostra o tipo do serviço
+
+rosservice call <service> --> executa um serviço
+
+rossrv (para usar com ROS services types)
+    rossrv show <service type>
+Ex: rosservice type /spawn |rosssrv show
+
+rosparam list --> operações com parâmetros
+
+rosparam get / --> ver estado atual dos parâmetros
+
+rqt_console --> console de erros
+
+rqt_logger_level --> util para filtrar tipos de erros
+
+roslaunch [package] [filename.launch] --> multiplos nodes
+	*Cria-se um arquivo .launch para usar o código .xml
+
+rqt_graph --> exibe topicos e nodes em grafico
+
+rqt_plot
+
+roscp [package_name] [file_to_copy_path] [copy_path]
+
+rosmsg show <type of the topic> --> exibe o conteudo da msg
+
+rosmsg echo <type of the topic> --> exibe o q ta sendo publicado no topico
+
+rostopic pub <type of the topic> --> publica no topico
+
+rosbag --> salvar, executar os tópicos publicados
+(rosbag record -a), etc.
+(rosbag play [.bag])
+
+###Para deixar o script executável###
+
+$ chmode +x [arquivo.py]
+
+
+
